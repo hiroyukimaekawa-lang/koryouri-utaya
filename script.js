@@ -4,14 +4,38 @@
  * IntersectionObserverを使用した軽量な実装
  */
 
-(function() {
+(function () {
     'use strict';
 
     // DOMContentLoaded後に実行
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         initScrollAnimation();
         initSmoothScroll();
+        initHamburgerMenu();
     });
+
+    /**
+     * ハンバーガーメニューの実装
+     */
+    function initHamburgerMenu() {
+        const hamburgerBtn = document.querySelector('.hamburger-menu');
+        const navList = document.querySelector('.nav-list');
+        const navLinks = document.querySelectorAll('.nav-list a');
+
+        if (hamburgerBtn && navList) {
+            hamburgerBtn.addEventListener('click', function () {
+                this.classList.toggle('active');
+                navList.classList.toggle('active');
+            });
+
+            navLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    hamburgerBtn.classList.remove('active');
+                    navList.classList.remove('active');
+                });
+            });
+        }
+    }
 
     /**
      * スクロール時のフェードインアニメーション
@@ -29,13 +53,13 @@
         };
 
         // IntersectionObserverのコールバック関数
-        const observerCallback = function(entries) {
-            entries.forEach(function(entry) {
+        const observerCallback = function (entries) {
+            entries.forEach(function (entry) {
                 // 要素がビューポートに入ったら
                 if (entry.isIntersecting) {
                     // visibleクラスを追加してアニメーション実行
                     entry.target.classList.add('visible');
-                    
+
                     // 一度アニメーションが実行されたら監視を停止（パフォーマンス向上）
                     observer.unobserve(entry.target);
                 }
@@ -46,7 +70,7 @@
         const observer = new IntersectionObserver(observerCallback, observerOptions);
 
         // 各要素を監視対象に追加
-        fadeElements.forEach(function(element) {
+        fadeElements.forEach(function (element) {
             observer.observe(element);
         });
     }
@@ -59,8 +83,8 @@
         // アンカーリンクを取得
         const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
-        anchorLinks.forEach(function(link) {
-            link.addEventListener('click', function(e) {
+        anchorLinks.forEach(function (link) {
+            link.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
 
                 // #のみの場合は処理しない
