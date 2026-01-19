@@ -1,0 +1,655 @@
+/* ============================================
+   Reset & Base Styles
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background-color: #FCFAF2;
+    background-image: 
+        radial-gradient(circle at 2px 2px, rgba(44, 44, 44, 0.02) 1px, transparent 0);
+    background-size: 40px 40px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Container & Layout
+   ============================================ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section {
+    padding: 4rem 0;
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: #1a1a1a;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   ① Hero Section (ファーストビュー)
+   ============================================ */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        rgba(26, 26, 26, 0.4) 0%,
+        rgba(26, 26, 26, 0.6) 100%
+    );
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: #fff;
+    padding: 0 1.5rem;
+}
+
+.hero-title {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-copy {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    letter-spacing: 0.15em;
+    line-height: 2;
+    margin-bottom: 3rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.scroll-text {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    opacity: 0.8;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.6);
+    animation: scrollLine 2s infinite;
+}
+
+@keyframes scrollLine {
+    0% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+}
+
+/* ============================================
+   Navigation Section
+   ============================================ */
+.main-nav {
+    background-color: #FCFAF2;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0;
+}
+
+.nav-list li {
+    margin: 0;
+}
+
+.nav-list a {
+    color: #1a1a1a;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    position: relative;
+    padding-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #8B2E2E;
+    transition: width 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: #8B2E2E;
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   ② Concept Section (コンセプト)
+   ============================================ */
+.concept {
+    background-color: #FCFAF2;
+}
+
+.section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 0.2em;
+    color: #1a1a1a;
+}
+
+.concept-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.concept-text {
+    text-align: center;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 2.2;
+    color: #2c2c2c;
+}
+
+.concept-text p {
+    margin-bottom: 1.5rem;
+}
+
+.note {
+    font-size: 0.9375rem;
+    color: #666;
+}
+
+/* ============================================
+   ③ Food Section (料理紹介)
+   ============================================ */
+.food {
+    background-color: #fff;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.food-item {
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.food-item:hover {
+    transform: translateY(-5px);
+}
+
+.food-image {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.food-item:hover .food-image img {
+    transform: scale(1.05);
+}
+
+.food-name {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+}
+
+.food-desc {
+    font-size: 0.9375rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.food-highlight {
+    text-align: center;
+    padding: 2rem;
+    background-color: #FCFAF2;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.highlight-text {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.highlight-desc {
+    font-size: 1rem;
+    line-height: 2;
+    color: #2c2c2c;
+}
+
+/* ============================================
+   ④ Story Section (店主・ストーリー)
+   ============================================ */
+.story {
+    background-color: #FCFAF2;
+}
+
+.story-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.story-text {
+    text-align: center;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 2.2;
+    color: #2c2c2c;
+}
+
+.story-text p {
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   ⑤ Info Section (店舗情報)
+   ============================================ */
+.info {
+    background-color: #fff;
+}
+
+.info-list {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.info-item {
+    display: flex;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    flex: 0 0 140px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: #1a1a1a;
+    font-size: 0.9375rem;
+}
+
+.info-value {
+    flex: 1;
+    color: #2c2c2c;
+    font-size: 0.9375rem;
+    line-height: 1.8;
+}
+
+.tel-link {
+    color: #1a1a1a;
+    text-decoration: underline;
+    text-decoration-color: rgba(26, 26, 26, 0.3);
+    transition: all 0.3s ease;
+}
+
+.tel-link:hover {
+    color: #8B2E2E;
+    text-decoration-color: #8B2E2E;
+}
+
+.map-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 400px;
+    display: block;
+}
+
+/* ============================================
+   ⑥ Reservation Section (予約導線)
+   ============================================ */
+.reservation {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+}
+
+.reservation .section-title {
+    color: #fff;
+}
+
+.reservation-text {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.1em;
+}
+
+.reservation-btn {
+    display: inline-block;
+    padding: 1.25rem 3rem;
+    background-color: #fff;
+    color: #1a1a1a;
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.reservation-btn:hover {
+    background-color: #8B2E2E;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   ⑦ SNS Section
+   ============================================ */
+.sns {
+    background-color: #FCFAF2;
+    text-align: center;
+}
+
+.sns-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: #1a1a1a;
+    transition: all 0.3s ease;
+}
+
+.sns-link:hover {
+    color: #8B2E2E;
+    transform: translateY(-3px);
+}
+
+.instagram-icon {
+    width: 60px;
+    height: 60px;
+    stroke: currentColor;
+}
+
+.sns-text {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+}
+
+/* ============================================
+   ⑧ Footer
+   ============================================ */
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 3rem 0 2rem;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 2rem;
+    letter-spacing: 0.2em;
+    color: #fff;
+}
+
+.footer-info {
+    margin-bottom: 2rem;
+}
+
+.footer-address,
+.footer-tel,
+.footer-hours {
+    font-size: 0.9375rem;
+    line-height: 2;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-tel .tel-link {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-tel .tel-link:hover {
+    color: #8B2E2E;
+    text-decoration-color: #8B2E2E;
+}
+
+.footer-copyright {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   Animation Classes
+   ============================================ */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   Responsive Design (スマホファースト)
+   ============================================ */
+
+/* タブレット (768px以上) */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 3rem;
+    }
+
+    .section {
+        padding: 5rem 0;
+    }
+
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+
+    .info-item {
+        padding: 1.5rem 0;
+    }
+
+    .info-label {
+        flex: 0 0 180px;
+    }
+}
+
+/* PC (1024px以上) */
+@media (min-width: 1024px) {
+    .section {
+        padding: 6rem 0;
+    }
+
+    .food-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .hero {
+        min-height: 700px;
+    }
+}
+
+/* スマホ (480px以下) */
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .hero-copy {
+        font-size: 0.9375rem;
+    }
+
+    .main-nav {
+        padding: 1.5rem 0;
+    }
+
+    .nav-list {
+        gap: 1rem;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 1.5rem;
+    }
+
+    .nav-list li {
+        flex-shrink: 0;
+    }
+
+    .nav-list a {
+        font-size: 0.875rem;
+        white-space: nowrap;
+    }
+
+    .food-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .info-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .info-label {
+        flex: none;
+        font-weight: 600;
+    }
+
+    .reservation-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}

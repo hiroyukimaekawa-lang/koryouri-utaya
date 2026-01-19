@@ -1,136 +1,90 @@
-// Smooth scroll for anchor links
-document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scroll for navigation links
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            // Skip if it's just "#"
-            if (href === '#') return;
-            
-            const target = document.querySelector(href);
-            
-            if (target) {
-                e.preventDefault();
-                
-                const targetPosition = target.offsetTop - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
+/**
+ * 小料理 詩や - 公式ホームページ
+ * スクロール時のフェードインアニメーション実装
+ * IntersectionObserverを使用した軽量な実装
+ */
+
+(function() {
+    'use strict';
+
+    // DOMContentLoaded後に実行
+    document.addEventListener('DOMContentLoaded', function() {
+        initScrollAnimation();
+        initSmoothScroll();
     });
 
-    // Enhanced Intersection Observer for elegant animations
-    const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -80px 0px'
-    };
+    /**
+     * スクロール時のフェードインアニメーション
+     * IntersectionObserverを使用
+     */
+    function initScrollAnimation() {
+        // アニメーション対象の要素を取得
+        const fadeElements = document.querySelectorAll('.fade-in');
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-visible');
-                
-                // Add staggered animation for child elements
-                const children = entry.target.querySelectorAll('.concept-vertical-text p, .about-vertical-text p, .concept-description p');
-                if (children.length > 0) {
-                    children.forEach((child, index) => {
-                        setTimeout(() => {
-                            child.style.opacity = '1';
-                            child.style.transform = 'translateY(0)';
-                        }, index * 150);
-                    });
-                }
-            }
-        });
-    }, observerOptions);
+        // IntersectionObserverのオプション設定
+        const observerOptions = {
+            root: null, // ビューポートを基準にする
+            rootMargin: '0px 0px -50px 0px', // 要素が50px見えたら発火
+            threshold: 0.1 // 要素の10%が見えたら発火
+        };
 
-    // Observe sections for fade-in effect
-    const sections = document.querySelectorAll('section');
-    sections.forEach((section, index) => {
-        section.classList.add('fade-in');
-        
-        // Add directional animation based on section order
-        if (index % 2 === 0) {
-            const imageWrappers = section.querySelectorAll('.concept-image-wrapper, .about-image-wrapper');
-            imageWrappers.forEach(wrapper => {
-                wrapper.classList.add('fade-in-right');
-            });
-            
-            const textWrappers = section.querySelectorAll('.concept-text-wrapper, .about-text-wrapper');
-            textWrappers.forEach(wrapper => {
-                wrapper.classList.add('fade-in-left');
-            });
-        } else {
-            const imageWrappers = section.querySelectorAll('.concept-image-wrapper, .about-image-wrapper');
-            imageWrappers.forEach(wrapper => {
-                wrapper.classList.add('fade-in-left');
-            });
-            
-            const textWrappers = section.querySelectorAll('.concept-text-wrapper, .about-text-wrapper');
-            textWrappers.forEach(wrapper => {
-                wrapper.classList.add('fade-in-right');
-            });
-        }
-        
-        observer.observe(section);
-    });
-
-    // Staggered animation for vertical text
-    const verticalTexts = document.querySelectorAll('.concept-vertical-text p, .about-vertical-text p');
-    verticalTexts.forEach(p => {
-        p.style.opacity = '0';
-        p.style.transform = 'translateY(20px)';
-        p.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-
-    // Staggered animation for description paragraphs
-    const descriptionParagraphs = document.querySelectorAll('.concept-description p');
-    descriptionParagraphs.forEach((p, index) => {
-        p.style.opacity = '0';
-        p.style.transform = 'translateY(20px)';
-        p.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-    });
-
-    // Observe description section separately for paragraph animation
-    const conceptSection = document.querySelector('.concept-section');
-    if (conceptSection) {
-        const descriptionObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
+        // IntersectionObserverのコールバック関数
+        const observerCallback = function(entries) {
+            entries.forEach(function(entry) {
+                // 要素がビューポートに入ったら
                 if (entry.isIntersecting) {
-                    descriptionParagraphs.forEach((p, index) => {
-                        setTimeout(() => {
-                            p.style.opacity = '1';
-                            p.style.transform = 'translateY(0)';
-                        }, index * 200);
+                    // visibleクラスを追加してアニメーション実行
+                    entry.target.classList.add('visible');
+                    
+                    // 一度アニメーションが実行されたら監視を停止（パフォーマンス向上）
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        // IntersectionObserverインスタンスを作成
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        // 各要素を監視対象に追加
+        fadeElements.forEach(function(element) {
+            observer.observe(element);
+        });
+    }
+
+    /**
+     * スムーススクロール実装
+     * アンカーリンククリック時のスムーズなスクロール
+     */
+    function initSmoothScroll() {
+        // アンカーリンクを取得
+        const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+        anchorLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+
+                // #のみの場合は処理しない
+                if (href === '#' || href === '#!') {
+                    return;
+                }
+
+                // ターゲット要素を取得
+                const target = document.querySelector(href);
+
+                if (target) {
+                    e.preventDefault();
+
+                    // ヘッダー分のオフセットを考慮
+                    const headerOffset = 0;
+                    const targetPosition = target.offsetTop - headerOffset;
+
+                    // スムーズにスクロール
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
-        }, { threshold: 0.2 });
-        
-        descriptionObserver.observe(conceptSection);
-    }
-
-    // Phone number click tracking
-    const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-    phoneLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            console.log('Phone number clicked');
-        });
-    });
-
-    // Add parallax effect to hero background text
-    const heroBackgroundText = document.querySelector('.hero-background-text');
-    if (heroBackgroundText) {
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * 0.3;
-            heroBackgroundText.style.transform = `translateY(${-50 + rate}%)`;
         });
     }
-});
+})();

@@ -3,210 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="小料理 詩やは、追浜駅より徒歩7分の小料理屋です。季節の料理と家庭の味を心ゆくまでお楽しみいただけます。お刺身、焼き魚、煮魚からハンバーグ、グラタン、唐揚げ、煮物など家庭料理と季節の料理がメインです。">
+    <meta name="keywords" content="小料理,居酒屋,追浜,横須賀,家庭料理,季節の料理,お刺身,日本酒">
     <title>小料理 詩や | 追浜の家庭料理と季節の料理</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Hero Image Section -->
-    <section class="hero-top">
-        <div class="hero-background-text">
-            <p class="hero-vertical-text">追浜で</p>
-            <p class="hero-vertical-text">一番上品で</p>
-            <p class="hero-vertical-text">温かい</p>
+    <!-- ① ファーストビュー（Hero Section） -->
+    <section class="hero" id="home">
+        <div class="hero-image">
+            <img src="img/store-image1.jpg" alt="小料理 詩や 店内の様子" class="hero-bg">
+            <div class="hero-overlay"></div>
         </div>
-        <div class="hero-images-container">
-            <div class="hero-oval hero-oval-left">
-                <img src="img/store-image1.jpg" alt="店内の様子" class="hero-image">
-            </div>
-            <div class="hero-oval hero-oval-right">
-                <img src="img/store-image2.jpg" alt="店内の雰囲気" class="hero-image">
+        <div class="hero-content">
+            <h1 class="hero-title">小料理 詩や</h1>
+            <p class="hero-copy">季節の料理と、家庭の味を、心ゆくまで。</p>
+            <div class="scroll-indicator">
+                <span class="scroll-text">Scroll</span>
+                <div class="scroll-line"></div>
             </div>
         </div>
     </section>
 
-    <!-- Navigation -->
+    <!-- Navigation Section -->
     <nav class="main-nav">
-        <ul class="nav-list">
-            <li><a href="#home">ホーム</a></li>
-            <li><a href="#menu">メニュー</a></li>
-            <li><a href="#gallery">ギャラリー</a></li>
-            <li><a href="#access">アクセス</a></li>
-            <li><a href="#about">こだわり</a></li>
-            <li><a href="https://hitosara.com/0020002760/" target="_blank">ヒトサラ</a></li>
-        </ul>
+        <div class="container">
+            <button class="hamburger-menu" aria-label="メニューを開く／閉じる">
+                <span class="hamburger-icon"></span>
+                <span class="hamburger-icon"></span>
+                <span class="hamburger-icon"></span>
+            </button>
+            <ul class="nav-list">
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#concept">コンセプト</a></li>
+                <li><a href="#food">料理</a></li>
+                <li><a href="#story">ストーリー</a></li>
+                <li><a href="#info">店舗情報</a></li>
+                <li><a href="#reservation">ご予約</a></li>
+                <li><a href="#sns">SNS</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- Instagram Section -->
-    <section class="instagram-section">
-        <a href="https://www.instagram.com/utaya_oppama5560/" target="_blank" class="instagram-link">
-            <div class="instagram-icon-wrapper">
-                <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <circle cx="12" cy="12" r="4"></circle>
-                    <circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"></circle>
-                </svg>
-            </div>
-            <span class="instagram-text">Instagram</span>
-        </a>
-    </section>
-
-    <!-- Concept Section -->
-    <section id="home" class="concept-section">
-        <div class="concept-inner">
-            <div class="concept-text-wrapper">
-                <div class="concept-vertical-text">
-                    <p>お刺身や季節の料理、</p>
-                    <p>家庭料理が食べられる</p>
-                    <p>アットホームな雰囲気のお店</p>
-                </div>
-            </div>
-            <div class="concept-image-wrapper">
-                <div class="concept-oval-image">
-                    <img src="img/food1.jpg" alt="季節の料理" class="concept-image">
-                </div>
-            </div>
-        </div>
-        <div class="concept-description">
-            <p>追浜駅より徒歩7分に佇む日本の家庭料理をメインにした小料理が堪能できます。</p>
-            <p>お刺身、焼き魚、煮魚からハンバーグ、グラタン、唐揚げ、煮物など家庭料理と季節の料理がメインです。</p>
-            <p>オーナー自らが足を運んで旬の食材を仕入れており、日によってオススメのメニューが変わります。</p>
-            <p>その時にしか食べられない料理を提供しております。</p>
-        </div>
-        <div class="concept-button-wrapper">
-            <a href="#menu" class="btn-menu">メニューを見る</a>
-        </div>
-    </section>
-
-    <!-- Full Width Images -->
-    <section class="full-width-images">
-        <div class="full-image-left">
-            <img src="img/store-image3.jpg" alt="店内の様子" class="full-image">
-        </div>
-        <div class="full-image-right">
-            <img src="img/food2.jpg" alt="季節の料理" class="full-image">
-        </div>
-    </section>
-
-    <!-- Sub Navigation -->
-    <nav class="sub-nav">
-        <ul class="sub-nav-list">
-            <li><a href="#home">ホーム</a></li>
-            <li><a href="#menu">メニュー</a></li>
-            <li><a href="#gallery">ギャラリー</a></li>
-            <li><a href="#access">アクセス</a></li>
-            <li><a href="#about">こだわり</a></li>
-            <li><a href="https://hitosara.com/0020002760/" target="_blank">予約</a></li>
-        </ul>
-    </nav>
-
-    <!-- Info Section -->
-    <section class="info-section">
-        <div class="info-container">
-            <div class="info-table">
-                <div class="info-row">
-                    <div class="info-label">店名</div>
-                    <div class="info-value">小料理 詩や</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">住所</div>
-                    <div class="info-value">〒237-0068 神奈川県横須賀市追浜本町1丁目43</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">営業時間</div>
-                    <div class="info-value">17:00〜23:00</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">定休日</div>
-                    <div class="info-value">火曜日</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">電話番号</div>
-                    <div class="info-value">046-866-5560</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">アクセス</div>
-                    <div class="info-value">京急追浜駅から徒歩7分</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">駐車場</div>
-                    <div class="info-value">なし（近隣にコインパーキングあり）</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">席数</div>
-                    <div class="info-value">カウンター8席・テーブル12席</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">予約</div>
-                    <div class="info-value">予約可能</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-label">備考</div>
-                    <div class="info-value">店内喫煙OK<br>※未就学のお子様のご入店はお断りさせて頂いております</div>
+    <!-- ② コンセプトセクション -->
+    <section class="concept section" id="concept">
+        <div class="container">
+            <div class="concept-content fade-in">
+                <h2 class="section-title">コンセプト</h2>
+                <div class="concept-text">
+                    <p>お刺身や季節の料理、家庭料理が食べられる<br>アットホームな雰囲気のお店。</p>
+                    <p>日本酒も季節毎に、色々取り揃えています。</p>
+                    <p class="note">店内喫煙OK。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section with Oval Image -->
-    <section id="about" class="about-section">
-        <div class="about-inner">
-            <div class="about-text-wrapper">
-                <div class="about-vertical-text">
-                    <p>こだわりの</p>
-                    <p>小料理</p>
+    <!-- ③ 料理紹介セクション -->
+    <section class="food section" id="food">
+        <div class="container">
+            <h2 class="section-title fade-in">料理紹介</h2>
+            <div class="food-grid">
+                <div class="food-item fade-in">
+                    <div class="food-image">
+                        <img src="img/food1.jpg" alt="お刺身">
+                    </div>
+                    <h3 class="food-name">お刺身</h3>
+                    <p class="food-desc">新鮮な魚介類を厳選してお出しします</p>
+                </div>
+                <div class="food-item fade-in">
+                    <div class="food-image">
+                        <img src="img/food2.jpg" alt="焼き魚">
+                    </div>
+                    <h3 class="food-name">焼き魚</h3>
+                    <p class="food-desc">季節の魚を丁寧に焼き上げます</p>
+                </div>
+                <div class="food-item fade-in">
+                    <div class="food-image">
+                        <img src="img/food3.jpg" alt="煮魚">
+                    </div>
+                    <h3 class="food-name">煮魚</h3>
+                    <p class="food-desc">家庭の味を大切にした煮物</p>
+                </div>
+                <div class="food-item fade-in">
+                    <div class="food-image">
+                        <img src="img/food4.jpg" alt="家庭料理">
+                    </div>
+                    <h3 class="food-name">家庭料理</h3>
+                    <p class="food-desc">ハンバーグ、グラタン、唐揚げ、煮物など</p>
                 </div>
             </div>
-            <div class="about-image-wrapper">
-                <div class="about-oval-image">
-                    <img src="img/food3.jpg" alt="こだわりの小料理" class="about-image">
+            <div class="food-highlight fade-in">
+                <p class="highlight-text">季節で変わるおすすめ料理</p>
+                <p class="highlight-desc">オーナー自らが旬の食材を仕入れ、日替わりでおすすめが変わります。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ④ 店主・ストーリーセクション -->
+    <section class="story section" id="story">
+        <div class="container">
+            <div class="story-content fade-in">
+                <h2 class="section-title">店主・ストーリー</h2>
+                <div class="story-text">
+                    <p>追浜駅より徒歩7分に佇む日本の家庭料理をメインにした小料理。</p>
+                    <p>オーナー自らが旬の食材を仕入れ、日替わりでおすすめが変わります。</p>
+                    <p>家庭料理とお酒を楽しめ、焼酎・ウイスキーのボトルキープも可能。</p>
+                    <p class="note">※店内喫煙席のため未就学児の入店不可。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Kitchen Image -->
-    <section class="kitchen-section">
-        <div class="kitchen-image">
-            <img src="img/food4.jpg" alt="厨房の様子" class="kitchen-img">
+    <!-- ⑤ 店舗情報セクション -->
+    <section class="info section" id="info">
+        <div class="container">
+            <h2 class="section-title fade-in">店舗情報</h2>
+            <div class="info-list fade-in">
+                <div class="info-item">
+                    <span class="info-label">店名</span>
+                    <span class="info-value">小料理 詩や</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">住所</span>
+                    <span class="info-value">〒237-0068 神奈川県横須賀市追浜本町1丁目43</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">電話番号</span>
+                    <span class="info-value"><a href="tel:046-866-5560" class="tel-link">046-866-5560</a></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">営業時間</span>
+                    <span class="info-value">17:00-23:00</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">定休日</span>
+                    <span class="info-value">火曜日</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">アクセス</span>
+                    <span class="info-value">京急追浜駅から徒歩7分</span>
+                </div>
+            </div>
+            <div class="map-wrapper fade-in">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.8974!2d139.6234!3d35.3245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDE5JzI4LjIiTiAxMznCsDM3JzI0LjIiRQ!5e0!3m2!1sja!2sjp!4v1234567890" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="小料理 詩や 地図">
+                </iframe>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ⑥ 予約導線セクション -->
+    <section class="reservation section" id="reservation">
+        <div class="container">
+            <div class="reservation-content fade-in">
+                <h2 class="section-title">ご予約</h2>
+                <p class="reservation-text">お席のご予約はこちらから</p>
+                <a href="https://hitosara.com/0020002760/" target="_blank" rel="noopener noreferrer" class="reservation-btn">
+                    ご予約はこちら
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⑦ SNSセクション -->
+    <section class="sns section" id="sns">
+        <div class="container">
+            <div class="sns-content fade-in">
+                <h2 class="section-title">SNS</h2>
+                <a href="https://www.instagram.com/utaya_oppama5560/" target="_blank" rel="noopener noreferrer" class="sns-link">
+                    <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"></circle>
+                    </svg>
+                    <span class="sns-text">Instagram</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⑧ フッター -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.8974!2d139.6234!3d35.3245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDE5JzI4LjIiTiAxMznCsDM3JzI0LjIiRQ!5e0!3m2!1sja!2sjp!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <div class="container">
+            <div class="footer-content">
+                <h2 class="footer-title">小料理 詩や</h2>
+                <div class="footer-info">
+                    <p class="footer-address">〒237-0068 神奈川県横須賀市追浜本町1丁目43</p>
+                    <p class="footer-tel"><a href="tel:046-866-5560" class="tel-link">046-866-5560</a></p>
+                    <p class="footer-hours">営業時間：17:00-23:00 / 定休日：火曜日</p>
+                </div>
+                <p class="footer-copyright">&copy; 2024 小料理 詩や</p>
             </div>
-            <div class="footer-image">
-                <img src="img/store-image1.jpg" alt="店内の雰囲気" class="footer-img">
-            </div>
-        </div>
-        <div class="footer-phone">
-            <p class="footer-phone-label">お電話でのご予約・お問い合わせ</p>
-            <a href="tel:046-866-5560" class="footer-phone-link">
-                <span class="phone-number">046-866-5560</span>
-            </a>
-        </div>
-        <div class="footer-logo">
-            <div class="logo-text">
-                <span class="logo-sub">小料理</span>
-                <span class="logo-main">詩や</span>
-            </div>
-        </div>
-        <div class="footer-info">
-            <p>〒237-0068 神奈川県横須賀市追浜本町1丁目43</p>
-            <div class="footer-hours">
-                <span class="hours-label">営業時間</span>
-                <span class="hours-value">17:00〜23:00</span>
-                <span class="hours-label">定休日</span>
-                <span class="hours-value">火曜日</span>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <p>&copy; 2024 小料理 詩や</p>
         </div>
     </footer>
 
