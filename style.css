@@ -117,19 +117,21 @@ a {
 }
 
 .hero-title {
-    font-size: clamp(2rem, 6vw, 4rem);
-    font-weight: 500;
+    color: #FCFAF2;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
     letter-spacing: 0.2em;
     margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .hero-copy {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-size: clamp(1.1rem, 3vw, 1.75rem);
     letter-spacing: 0.15em;
     line-height: 2;
+    font-weight: 500;
     margin-bottom: 3rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
 
 .scroll-indicator {
